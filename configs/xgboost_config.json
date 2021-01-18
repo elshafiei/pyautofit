@@ -1,0 +1,28 @@
+{
+    "name": "autofit_config",
+    "version": "template",
+    "classifier_config": {
+        "model": "xgboost",
+        "params":
+        {
+            "max_depth": 1,
+            "n_estimators": 600,
+            "learning_rate": 0.05,
+            "objective": "binary:logistic",
+            "booster": "gbtree",
+            "n_jobs": 1,
+            "eval_metric": "auc",
+            "early_stopping_rounds": 50
+        },
+        "random_state": 2333
+    },
+    "dataset_config": {
+        "id_col": "applicationid",
+        "flag_col": "xy_gbf"
+    },
+    "binning_config": {
+        "method": "num_bads",
+        "max_bins": 50,
+        "min_bads": 10
+    }
+}

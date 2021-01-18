@@ -1,0 +1,31 @@
+{
+    "name": "autofit_demo",
+    "version": "demo",
+    "dataset_config": {
+        "id_col": "index",
+        "flag_col": "gbf",
+        "instance_weight_col": "weight",
+        "categorical_cols": ["feat_cat"]
+    },
+    "binning_config": {
+        "method": "num_bads",
+        "max_bins": 50,
+        "min_bads": 10
+    },
+    "classifier_config":{
+        "model": "lightgbm",
+        "model_params":{
+            "num_leaves": 3,
+            "max_depth": 1,
+            "learning_rate":0.05,
+            "n_estimators":2000
+        },
+        "fit_params":{
+            "eval_metric": "auc",
+            "categorical_feature":"auto",
+            "early_stopping_rounds": 50,
+            "random_state": 2333
+        }
+
+    }
+}

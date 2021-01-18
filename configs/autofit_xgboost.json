@@ -1,0 +1,32 @@
+{
+    "name": "autofit_demo",
+    "version": "demo",
+    "dataset_config": {
+        "id_col": "index",
+        "flag_col": "gbf",
+        "instance_weight_col": "weight",
+        "categorical_cols": ["feat_cat"]
+    },
+    "binning_config": {
+        "method": "num_bads",
+        "max_bins": 50,
+        "min_bads": 10
+    },
+    "classifier_config":{
+        "model": "xgboost",
+        "model_params":{
+            "max_depth": 1,
+            "n_estimators": 600,
+            "learning_rate": 0.05,
+            "objective": "binary:logistic",
+            "booster": "gbtree",
+            "n_jobs": 1
+        },
+        "fit_params":{
+            "eval_metric": "auc",
+            "early_stopping_rounds": 50,
+            "random_state": 2333
+        }
+
+    }
+}

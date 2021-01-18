@@ -1,0 +1,29 @@
+{
+    "name": "btd_model",
+    "version": "mvp",
+    "classifier_config": {
+        "model": "xgboost",
+        "model_params": {
+            "max_depth": 1,
+            "n_estimators": 2000,
+            "learning_rate": 0.05,
+            "objective": "binary:logistic",
+            "booster": "gbtree",
+            "n_jobs": 1,
+            "eval_metric": "auc",
+            "random_state": 2333
+        },
+        "fit_params": {
+            "early_stopping_rounds": 50
+        }
+    },
+    "dataset_config": {
+        "id_col": "cust_id",
+        "flag_col": "bad_flag"
+    },
+    "binning_config": {
+        "method": "num_bads",
+        "max_bins": 5,
+        "min_bads": 20
+    }
+}
