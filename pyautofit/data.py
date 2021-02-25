@@ -38,6 +38,27 @@ class AutoFitDataset:
         self._val_df()
 
     @classmethod
+    def from_dataframe(df, config):
+        """Constructs AutoFitDataset from dataframe and dataset config dictionary
+
+        Args:
+            df: input dataframe
+            config: dataset config, mandatory fields: id_col, flag_col
+
+        Returns:
+            an AutoFitDataset instance
+        """
+        af_ds = AutoFitDataset(
+            df,
+            config.get('id_col'),
+            config.get('flag_col'),
+            config.get('instance_weight_col'),
+            config.get('categorical_cols'),
+            config.get('exclusions')
+        )
+        return af_ds
+    
+    @classmethod
     def from_csv(ds, file_path, config):
         """Constructs AutoFitDataset from csv file and dataset config dictionary
 
