@@ -229,7 +229,7 @@ class AutoFitModel:
 
         replaced_df = replaced_df.apply(_assign, axis=0)
         if isinstance(cat_df, pd.DataFrame):
-            replaced_df = replaced_df.join(cat_df)
+            replaced_df = replaced_df.join(cat_df, rsuffix='_rcat')
         replaced_df[af_ds.id_col] = id_col
         replaced_df[af_ds.flag_col] = label_col
         if af_ds.instance_weight_col:
