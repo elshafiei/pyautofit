@@ -310,7 +310,7 @@ class AutoFitModel:
             x_cols = features + [af_ds.instance_weight_col]
 
         X_train, X_test, y_train, y_test = train_test_split(
-            df_bined[x_cols], df_bined[af_ds.flag_col], test_size=test_size, random_state=fit_params.get('random_state'))
+            df_bined[x_cols], df_bined[af_ds.flag_col], test_size=test_size, random_state=clf_params.get('random_state'))
 
         sample_weight = None
         sample_weight_eval_set = None
