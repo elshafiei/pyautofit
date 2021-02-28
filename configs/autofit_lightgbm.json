@@ -18,13 +18,13 @@
             "num_leaves": 3,
             "max_depth": 1,
             "learning_rate":0.05,
-            "n_estimators":2000
+            "n_estimators":2000,
+            "random_state": 2333
         },
         "fit_params":{
             "eval_metric": "auc",
             "categorical_feature":"auto",
-            "early_stopping_rounds": 50,
-            "random_state": 2333
+            "early_stopping_rounds": 50
         }
 
     }
