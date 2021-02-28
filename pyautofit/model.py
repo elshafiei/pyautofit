@@ -274,7 +274,7 @@ class AutoFitModel:
 
         return constraints
 
-    def modeling_xgboost(self, af_ds, apply_binning=True, correlation_threshold=.3, test_size=.2):
+    def modeling_xgboost(self, af_ds, apply_binning=True, correlation_threshold=.3, test_size=.2, replace_method='woe'):
         """Apply xgboost tree on bined features
 
         Args:
@@ -289,7 +289,7 @@ class AutoFitModel:
         if apply_binning:
             self.auto_binning(af_ds, self.binning_config)
 
-        df_bined = self.replace_value(af_ds, method='order')
+        df_bined = self.replace_value(af_ds, method=replace_method)
 
         # assume intercept
         base_score = df_bined[af_ds.flag_col].mean()
